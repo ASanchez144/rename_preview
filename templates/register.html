@@ -1,0 +1,34 @@
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Your Logo</div>
+    </nav>
+
+    <!-- Register Section -->
+    <section class="register-section">
+        <div class="modal-content">
+            <h2>Register</h2>
+            <a href="{{ url_for('google_login') }}" class="oauth-button">Register with Google</a>
+            <p>or</p>
+            <form action="{{ url_for('register') }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.username(size=32, placeholder="Username") }}
+                {{ form.password(size=32, placeholder="Password") }}
+                {{ form.confirm(size=32, placeholder="Repeat Password") }}
+                <button type="submit">Register</button>
+            </form>
+            <p>Already registered? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

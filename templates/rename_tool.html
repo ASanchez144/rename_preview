@@ -1,0 +1,34 @@
+<!-- templates/rename_tool.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rename Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">YourLogo</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Rename Tool Section -->
+    <section class="rename-tool">
+        <h1>Rename Your Files</h1>
+        <form id="renameForm" action="{{ url_for('rename_tool') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="file" name="files" id="fileInput" multiple required>
+            <input type="text" name="rename_pattern" id="renamePattern" placeholder="Enter new base name" required>
+            <button type="submit">Rename Files</button>
+        </form>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

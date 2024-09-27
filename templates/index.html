@@ -1,0 +1,79 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Product Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">YourLogo</div>
+        <ul class="nav-links">
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('rename_tool') }}">Rename Tool</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><button id="loginBtn">Login</button></li>
+                <li><button id="registerBtn">Register</button></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Mass Rename Your Files Easily</h1>
+        <p>Upload, rename, and download your files in seconds.</p>
+        <button id="getStartedBtn">Get Started</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#company">Company</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+        </ul>
+        <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <a href="{{ url_for('google_login') }}" class="oauth-button">Login with Google</a>
+            <p>or</p>
+            <form action="{{ url_for('login') }}" method="post">
+                {{ login_form.hidden_tag() }}
+                {{ login_form.username(class="form-input", placeholder="Username") }}
+                {{ login_form.password(class="form-input", placeholder="Password") }}
+                <button type="submit">Login</button>
+            </form>
+            <p>Not registered? <a href="#" id="switchToRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h2>Register</h2>
+            <a href="{{ url_for('google_login') }}" class="oauth-button">Register with Google</a>
+            <p>or</p>
+            <form action="{{ url_for('register') }}" method="post">
+                {{ registration_form.hidden_tag() }}
+                {{ registration_form.username(class="form-input", placeholder="Username") }}
+                {{ registration_form.password(class="form-input", placeholder="Password") }}
+                {{ registration_form.confirm(class="form-input", placeholder="Repeat Password") }}
+                <button type="submit">Register</button>
+            </form>
+            <p>Already registered? <a href="#" id="switchToLogin">Login here</a></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

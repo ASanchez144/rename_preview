@@ -1,0 +1,411 @@
+/* styles.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Color Palette */
+:root {
+    /* HEX */
+    --gunmetal: #022b3a;
+    --teal: #1f7a8c;
+    --columbia-blue: #bfdbf7;
+    --lavender-web: #e1e5f2;
+    --white: #ffffff;
+
+    /* Gradient (optional use) */
+    --gradient-top-right: linear-gradient(45deg, var(--gunmetal), var(--teal), var(--columbia-blue), var(--lavender-web), var(--white));
+    --gradient-bottom-left: radial-gradient(circle at bottom left, var(--gunmetal), var(--teal), var(--columbia-blue), var(--lavender-web), var(--white));
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--lavender-web);
+    color: var(--gunmetal);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav .logo {
+    color: var(--gunmetal);
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 30px;
+}
+
+nav .nav-links a,
+nav .nav-links button {
+    color: var(--gunmetal);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover,
+nav .nav-links button:hover {
+    color: var(--teal);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+    text-align: center;
+    background: var(--columbia-blue);
+    background-image: url('background-image.png'); /* Optional: Add a subtle background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--gunmetal);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: var(--gunmetal);
+    max-width: 600px;
+}
+
+.hero button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero button:hover {
+    background-color: var(--gunmetal);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--gunmetal);
+    color: var(--white);
+    padding: 20px 40px;
+    text-align: center;
+}
+
+footer .footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+footer .footer-links li {
+    margin: 0 15px;
+}
+
+footer .footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links a:hover {
+    color: var(--teal);
+}
+
+footer p {
+    font-size: 12px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 43, 58, 0.8); /* Gunmetal with opacity */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(2, 43, 58, 0.1);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--gunmetal);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--gunmetal);
+    text-align: center;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input {
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid var(--columbia-blue);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 5px rgba(31, 122, 140, 0.5);
+}
+
+.modal-content button {
+    padding: 12px 15px;
+    font-size: 16px;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+    background-color: var(--gunmetal);
+    transform: translateY(-2px);
+}
+
+.modal-content p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-content a {
+    color: var(--teal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.modal-content a:hover {
+    color: var(--gunmetal);
+}
+
+.oauth-button {
+    display: block;
+    padding: 12px;
+    background-color: var(--gunmetal);
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.oauth-button:hover {
+    background-color: var(--teal);
+}
+
+/* Rename Tool Styles */
+.rename-tool {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 50px 20px; /* Top padding accounts for fixed navbar */
+    background-color: var(--lavender-web);
+}
+
+.rename-tool h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: var(--gunmetal);
+    text-align: center;
+}
+
+.rename-tool form {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(2, 43, 58, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.rename-tool input[type="file"],
+.rename-tool input[type="text"] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid var(--columbia-blue);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.rename-tool input[type="file"]:focus,
+.rename-tool input[type="text"]:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 5px rgba(31, 122, 140, 0.5);
+}
+
+.rename-tool button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.rename-tool button:hover {
+    background-color: var(--gunmetal);
+    transform: translateY(-2px);
+}
+
+/* Button Enhancements */
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(2, 43, 58, 0.1);
+}
+
+/* Input Focus Enhancements */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 5px rgba(31, 122, 140, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav .nav-links li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .rename-tool {
+        padding: 80px 20px 30px 20px;
+    }
+
+    .rename-tool h1 {
+        font-size: 28px;
+    }
+
+    .rename-tool form {
+        padding: 30px;
+    }
+}
