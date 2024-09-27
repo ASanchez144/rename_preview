@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* General Styles */
 body {
     margin: 0;
@@ -27,7 +29,8 @@ nav .nav-links li {
     margin-left: 20px;
 }
 
-nav .nav-links a, nav .nav-links button {
+nav .nav-links a,
+nav .nav-links button {
     color: #fff;
     text-decoration: none;
     background: none;
@@ -40,9 +43,8 @@ nav .nav-links a, nav .nav-links button {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background-image: url('background.jpg');
-    background-size: cover;
-    color: #fff;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 .hero h1 {
@@ -97,8 +99,85 @@ footer .footer-links a {
 /* Modal Content */
 .modal-content {
     background-color: #fff;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 20px;
     width: 30%;
     border-radius: 5px;
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal-content button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Rename Tool Styles */
+.rename-tool {
+    text-align: center;
+    padding: 50px;
+}
+
+.rename-tool h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.rename-tool form {
+    display: inline-block;
+    text-align: left;
+}
+
+.rename-tool input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.rename-tool button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Result Styles */
+#result {
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav .nav-links {
+        flex-direction: column;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
 }
